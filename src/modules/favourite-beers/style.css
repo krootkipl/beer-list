@@ -1,0 +1,16 @@
+.beer-list {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ant-card-cover {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.ant-card-body {
+}
+
