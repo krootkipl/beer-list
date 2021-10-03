@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import BeerListComponent from './modules/beer-list';
+import { Layout } from 'antd';
+import { Route, HashRouter as Router, Switch } from 'react-router-dom';
+import { FavouriteBeers } from './modules/favourite-beers';
+
+const { Header, Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Layout>
+        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+          <a href={'/'}>Beer List</a>
+          <a href={'#/favourite'}>Favourite Beers</a>
+        </Header>
+        <Content style={{paddingTop: '60px'}}>
+          <Router>
+            <Switch>
+              <Route exact={true} path={['/']} component={BeerListComponent}/>
+              <Route path={['/favourite']} component={FavouriteBeers}/>
+            </Switch>
+          </Router>
+        </Content>
+      </Layout>
+
     </div>
   );
 }
